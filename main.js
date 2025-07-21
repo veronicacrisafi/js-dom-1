@@ -42,13 +42,32 @@ buttonEl.addEventListener(
       imgElOff.src = "./img/spenta.png";
       //qui gli dico che se la lampadina è spenta è false
       lampOn = false;
+
       console.log("hai spento la lampadina");
     }
     //invece se è accesa è true e cambia l'immagine da spenta ad accesa
     else {
       imgElOff.src = "./img/accesa.png";
       lampOn = true;
+
       console.log("hai acceso la lampadina");
     }
   }
 );
+
+//Uso un'altra funzione per il cambio del testo al click del button da accendi a spegni e viceversa
+
+//prendo il button e gli applico la dot notation .onclick
+//scrivo la funzione
+buttonEl.onclick = function switchOnOff() {
+  //se il button è uguale a ACCENDI
+  if (buttonEl.innerText === "ACCENDI") {
+    //allora mi cambi il testo al click in SPEGNI
+    buttonEl.innerText = "SPEGNI";
+  }
+  // se invece il button è uguale a SPEGNI
+  else if (buttonEl.innerText === "SPEGNI") {
+    // allora mi cambi il testo in accendi al click
+    buttonEl.innerText = "ACCENDI";
+  }
+};
