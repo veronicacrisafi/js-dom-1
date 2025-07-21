@@ -19,7 +19,7 @@ Per fare questo bonus potremmo aver bisogno di del metodo string.includes() 😉
 
 // mi seleziono il button #switchOnOff
 
-const buttonEl = document.getElementById("switchOnOff");
+let buttonEl = document.getElementById("switchOnOff");
 buttonEl.style.backgroundColor = "violet";
 buttonEl.style.height = "40px";
 buttonEl.style.width = "120px";
@@ -28,9 +28,27 @@ buttonEl.style.border = "none";
 buttonEl.style.color = "white";
 
 //voglio che al click l'immagine cambi e che da spenta si accenda
-// prendo il bottone e gli dico tramite la dot notation .addEventListener che al click deve sostitutire l'immagine da spenta.png (che è quella presente in pagina html e che ho ripreso nella variabile all'interno della funzione per selezionarmela) ad accesa.png
 
-buttonEl.addEventListener("click", function accendiLampadina(accensione) {
-  const imgElOff = document.getElementById("off");
-  imgElOff.src = "./img/accesa.png";
-});
+//uso una variabile let (che si modifica ad ogni evento)che mi dice se la lampadina è accesa o spenta, all'inizio è spenta quindi la tengo su false
+let lampOn = false;
+
+//aggiungo l'evento al click, quindi che se si schiaccia il bottone la lampadina si deve accendere tramite la funzione
+buttonEl.addEventListener(
+  "click",
+  function accendiLampadina(accensione, spegnimento) {
+    //mi seleziono l'immagine della lampadina spenta
+    const imgElOff = document.getElementById("off");
+    //qui gli dico che se la lampadina è spenta è false
+    if (lampOn) {
+      imgElOff.src = "./img/spenta.png";
+      lampOn = false;
+      console.log("hai spento la lampadina");
+    }
+    //invece se è accesa è true e cambia l'immagine da spenta ad accesa
+    else {
+      imgElOff.src = "./img/accesa.png";
+      lampOn = true;
+      console.log("hai acceso la lampadina");
+    }
+  }
+);
