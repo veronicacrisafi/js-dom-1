@@ -36,11 +36,11 @@ let lampOn = false;
 buttonEl.addEventListener(
   "click",
   function accendiLampadina(accensione, spegnimento) {
-    //mi seleziono l'immagine della lampadina spenta
     const imgElOff = document.getElementById("off");
-    //qui gli dico che se la lampadina è spenta è false
     if (lampOn) {
+      //mi seleziono l'immagine della lampadina spenta
       imgElOff.src = "./img/spenta.png";
+      //qui gli dico che se la lampadina è spenta è false
       lampOn = false;
       console.log("hai spento la lampadina");
     }
